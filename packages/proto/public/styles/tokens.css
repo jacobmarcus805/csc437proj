@@ -1,0 +1,17 @@
+:root {
+    --color-brand-red: #98002E;
+    --color-brand-yellow: #F9A01B;
+    --color-white: #ffffff;
+
+    --color-background-page: #121212;
+    --color-background-header: var(--color-brand-red);
+    --color-background-section: #1e1e1e;
+
+    --color-text-default: #e0e0e0;
+    --color-text-header: var(--color-white);
+    --color-text-heading: var(--color-white);
+
+    --color-accent: var(--color-brand-yellow);
+    --color-accent-hover: var(--color-white);
+    --color-border-subtle: #333333;
+}
