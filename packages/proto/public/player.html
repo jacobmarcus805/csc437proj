@@ -1,33 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <title>Bam Adebayo - Player Profile</title>
-    <link rel="stylesheet" type="text/css" href="styles/tokens.css">
-    <link rel="stylesheet" type="text/css" href="styles/page.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/page.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">← Back to Team Profile</a>
-    </nav>
+    <header class="app-header">
+        <div class="team-brand">
+            <h1>
+                <svg class="icon"><use href="/icons/nba.svg#icon-basketball" /></svg>
+                Miami Heat
+            </h1>
+        </div>
+        <nav class="app-nav">
+            <a href="index.html">Team Home</a>
+            <a href="game.html">Schedule</a>
+        </nav>
+    </header>
 
-    <main>
-        <h1>
-            <svg class="icon">
-                <use href="/icons/nba.svg#icon-jersey" />
-            </svg>
-            Bam Adebayo
-        </h1>
-        <ul>
-            <li>Position: Center</li>
-            <li>Height: 6'9"</li>
-            <li>Points Per Game (PPG): 20.2</li>
-        </ul>
+    <div class="page-container">
+        
+        <aside class="sidebar">
+            <h3>Player Stats</h3>
+            <ul>
+                <li>Position: Center</li>
+                <li>Height: 6'9"</li>
+                <li>PPG: 19.3</li>
+                <li>RPG: 10.4</li>
+            </ul>
+        </aside>
 
-        <section>
-            <h2>Recent Activity</h2>
-            <p>Participates in: <a href="game.html">Game vs. Lakers</a></p>
-        </section>
-    </main>
+        <main class="content-area">
+            <section class="card">
+                <h2>
+                    <svg class="icon"><use href="/icons/nba.svg#icon-jersey" /></svg>
+                    Bam Adebayo (#13)
+                </h2>
+                <p>Bam Adebayo is a core player for the Miami Heat, known for his elite defense and playmaking ability.</p>
+            </section>
+
+            <section class="card">
+                <h2>Recent Activity</h2>
+                <p>Participates in: <a href="game.html">Game vs. Lakers</a></p>
+            </section>
+        </main>
+        
+    </div>
 </body>
 </html>

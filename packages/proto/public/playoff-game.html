@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8" />
     <title>Game 1: Eastern Conference Finals</title>
-    <link rel="stylesheet" type="text/css" href="styles/tokens.css">
-    <link rel="stylesheet" type="text/css" href="styles/page.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/page.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">← Back to Team Profile</a> | 
-        <a href="game.html">← Back to Standard Game Log</a>
-    </nav>
+    <header class="app-header">
+        <div class="team-brand">
+            <h1>
+                <svg class="icon"><use href="/icons/nba.svg#icon-basketball" /></svg>
+                Miami Heat
+            </h1>
+        </div>
+        <nav class="app-nav">
+            <a href="index.html">Team Home</a>
+            <a href="game.html">Game Log</a>
+        </nav>
+    </header>
 
-    <main>
-        <h1>Playoff Matchup: Game 1</h1>
-        <p>Series: Best of 7</p>
-        <p>Stakes: Elimination</p>
-    </main>
+    <div class="page-container">
+        <aside class="sidebar">
+            <h3>Series Info</h3>
+            <ul>
+                <li>Format: Best of 7</li>
+                <li>Stakes: Elimination</li>
+            </ul>
+        </aside>
+
+        <main class="content-area">
+            <section class="card">
+                <h2>Playoff Matchup: Game 1</h2>
+                <p>Eastern Conference Finals — a high-stakes elimination game.</p>
+            </section>
+        </main>
+    </div>
 </body>
 </html>

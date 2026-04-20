@@ -3,15 +3,20 @@ body {
     color: var(--color-text-default);
     font-family: 'Roboto', Arial, sans-serif;
     font-size: 16px;
-    margin: 0;
 }
 
-header {
+header.app-header {
     background-color: var(--color-background-header);
     color: var(--color-text-header);
-    padding: 20px;
+    padding: var(--space-lg);
     border-bottom: 4px solid var(--color-accent);
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.app-nav a {
+    margin-left: var(--space-lg);
 }
 
 a {
@@ -32,15 +37,37 @@ h1, h2, h3 {
 h2 {
     color: var(--color-text-heading);
     border-bottom: 1px solid var(--color-border-subtle);
-    padding-bottom: 5px;
+    padding-bottom: var(--space-xs);
+    margin-bottom: var(--space-md);
 }
 
-section {
+.page-container {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+}
+
+.sidebar {
+    grid-column: span 3;
+    background-color: var(--color-background-section);
+    padding: var(--space-md);
+    border-radius: 8px;
+    border: 1px solid var(--color-border-subtle);
+}
+
+.content-area {
+    grid-column: span 9;
+}
+
+section, .card {
     background-color: var(--color-background-section);
     border: 1px solid var(--color-border-subtle);
     border-radius: 8px;
-    padding: 15px;
-    margin: 20px;
+    padding: var(--space-md);
+    margin-bottom: var(--space-lg);
 }
 
 ul {
@@ -49,13 +76,36 @@ ul {
 }
 
 li {
-    margin-bottom: 10px;
+    margin-bottom: var(--space-sm);
 }
 
 svg.icon {
-  display: inline;
-  height: 2em;
-  width: 2em;
-  vertical-align: top;
-  fill: currentColor;
+    display: inline;
+    height: 2em;
+    width: 2em;
+    vertical-align: top;
+    fill: currentColor;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        grid-column: span 12;
+    }
+
+    .content-area {
+        grid-column: span 12;
+    }
+
+    header.app-header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .app-nav {
+        margin-top: var(--space-md);
+    }
+
+    .app-nav a {
+        margin: 0 var(--space-sm);
+    }
 }

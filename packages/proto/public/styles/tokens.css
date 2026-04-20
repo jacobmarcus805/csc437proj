@@ -14,4 +14,10 @@
     --color-accent: var(--color-brand-yellow);
     --color-accent-hover: var(--color-white);
     --color-border-subtle: #333333;
+
+    --space-xs: 5px;
+    --space-sm: 10px;
+    --space-md: 15px;
+    --space-lg: 20px;
+    --space-xl: 40px;
 }

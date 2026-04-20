@@ -1,35 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>2025-2026 NBA Season</title>
-    <link rel="stylesheet" type="text/css" href="styles/tokens.css">
-    <link rel="stylesheet" type="text/css" href="styles/page.css">
+    <meta charset="utf-8" />
+    <title>2025-2026 Season - Miami Heat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/reset.css" />
+    <link rel="stylesheet" href="styles/tokens.css">
+    <link rel="stylesheet" href="styles/page.css">
 </head>
 <body>
-    <nav>
-        <a href="index.html">← Back to Team Profile</a>
-    </nav>
+    <header class="app-header">
+        <div class="team-brand">
+            <h1>
+                <svg class="icon"><use href="/icons/nba.svg#icon-basketball" /></svg>
+                Miami Heat
+            </h1>
+        </div>
+        <nav class="app-nav">
+            <a href="index.html">Team Home</a>
+            <a href="player.html">Roster</a>
+        </nav>
+    </header>
 
-    <main>
-        <h1>2025-2026 NBA Season</h1>
-        
-        <section>
-            <h2>Season Details</h2>
+    <div class="page-container">
+        <aside class="sidebar">
+            <h3>Season Overview</h3>
             <ul>
                 <li>Status: Active</li>
-                <li>Current Team Record: 10-2</li>
-                <li>Conference Standing: 1st in East</li>
+                <li>Record: 42-20</li>
+                <li>Standing: 2nd in East</li>
             </ul>
-        </section>
+        </aside>
 
-        <section>
-            <h2>Season Schedule</h2>
-            <ul>
-                <li><a href="game.html">October 25, 2025: vs. Lakers</a></li>
-                <li><a href="playoff-game.html">Post-Season Hub</a></li>
-            </ul>
-        </section>
-    </main>
+        <main class="content-area">
+            <section class="card">
+                <h2>
+                    <svg class="icon"><use href="/icons/nba.svg#icon-calendar" /></svg>
+                    2025-2026 NBA Season
+                </h2>
+                <p>The Miami Heat are looking to secure a top playoff seed and make another deep run in the postseason.</p>
+            </section>
+
+            <section class="card">
+                <h2>Season Schedule</h2>
+                <ul>
+                    <li><a href="game.html">October 25, 2025: vs. Lakers</a></li>
+                    <li><a href="playoff-game.html">Post-Season Hub</a></li>
+                </ul>
+            </section>
+        </main>
+    </div>
 </body>
 </html>
