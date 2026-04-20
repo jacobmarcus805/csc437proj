@@ -1,7 +1,8 @@
 body {
     background-color: var(--color-background-page);
     color: var(--color-text-default);
-    font-family: sans-serif;
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 16px;
     margin: 0;
 }
 
@@ -21,6 +22,11 @@ a {
 
 a:hover {
     color: var(--color-accent-hover);
+}
+
+h1, h2, h3 {
+    font-family: 'Oswald', Impact, sans-serif;
+    font-weight: 700;
 }
 
 h2 {
@@ -44,4 +50,12 @@ ul {
 
 li {
     margin-bottom: 10px;
+}
+
+svg.icon {
+  display: inline;
+  height: 2em;
+  width: 2em;
+  vertical-align: top;
+  fill: currentColor;
 }
