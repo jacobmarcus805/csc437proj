@@ -62,14 +62,6 @@ h2 {
     grid-column: span 9;
 }
 
-section, .card {
-    background-color: var(--color-background-section);
-    border: 1px solid var(--color-border-subtle);
-    border-radius: 8px;
-    padding: var(--space-md);
-    margin-bottom: var(--space-lg);
-}
-
 ul {
     list-style-type: none;
     padding-left: 0;

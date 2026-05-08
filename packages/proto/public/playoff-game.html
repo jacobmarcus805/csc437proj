@@ -38,12 +38,27 @@
         </aside>
 
         <main class="content-area">
-            <section class="card">
-                <h2>Playoff Matchup: Game 1</h2>
-                <p>Eastern Conference Finals — a high-stakes elimination game.</p>
-            </section>
+            <heat-card>
+                <span slot="heading">Playoff Matchup: Game 1</span>
+                <p slot="body">Eastern Conference Finals — a high-stakes elimination game.</p>
+            </heat-card>
         </main>
     </div>
+    <script type="importmap">
+    {
+        "imports": {
+            "@unbndl/html": "https://unpkg.com/@unbndl/html"
+        }
+    }
+    </script>
+    <script type="module">
+        import { define } from "@unbndl/html";
+        import { HeatCardElement } from "/scripts/components/heat-card.js";
+
+        define({
+            "heat-card": HeatCardElement
+        });
+    </script>
     <script type="module" src="scripts/darkmode.js"></script>
 </body>
 </html>
