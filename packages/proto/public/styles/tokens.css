@@ -21,3 +21,17 @@
     --space-lg: 20px;
     --space-xl: 40px;
 }
+
+body.light-mode {
+    --color-background-page: #f4f4f4;
+    --color-background-header: var(--color-brand-red);
+    --color-background-section: #ffffff;
+
+    --color-text-default: #1a1a1a;
+    --color-text-header: var(--color-white);
+    --color-text-heading: #1a1a1a;
+
+    --color-accent: #b5460a;
+    --color-accent-hover: #1a1a1a;
+    --color-border-subtle: #cccccc;
+}

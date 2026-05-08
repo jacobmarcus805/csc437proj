@@ -109,3 +109,19 @@ svg.icon {
         margin: 0 var(--space-sm);
     }
 }
+
+label.theme-toggle {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    margin-left: var(--space-lg);
+    color: var(--color-text-header);
+    font-family: 'Roboto', Arial, sans-serif;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+label.theme-toggle input {
+    cursor: pointer;
+    accent-color: var(--color-accent);
+}
