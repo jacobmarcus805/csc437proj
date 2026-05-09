@@ -42,25 +42,7 @@
         </aside>
 
         <main class="content-area">
-            <heat-card icon="icon-clipboard">
-                <span slot="heading">Head Coach</span>
-                <a slot="body" href="coach.html">Erik Spoelstra</a>
-            </heat-card>
-
-            <heat-card icon="icon-jersey">
-                <span slot="heading">Current Roster</span>
-                <ul slot="body">
-                    <li><a href="player.html">Bam Adebayo (#13)</a></li>
-                </ul>
-            </heat-card>
-
-            <heat-card icon="icon-calendar">
-                <span slot="heading">Schedule &amp; Seasons</span>
-                <ul slot="body">
-                    <li><a href="season.html">2025-2026 Season</a></li>
-                    <li><a href="game.html">Next Game: vs. Lakers</a></li>
-                </ul>
-            </heat-card>
+            <heat-roster src="/data/team.json"></heat-roster>
         </main>
         
     </div>
@@ -74,9 +56,11 @@
     <script type="module">
         import { define } from "@unbndl/html";
         import { HeatCardElement } from "/scripts/components/heat-card.js";
+        import { HeatRosterElement } from "/scripts/components/heat-roster.js";
 
         define({
-            "heat-card": HeatCardElement
+            "heat-card": HeatCardElement,
+            "heat-roster": HeatRosterElement
         });
     </script>
     <script type="module" src="scripts/darkmode.js"></script>
