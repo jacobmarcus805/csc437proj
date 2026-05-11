@@ -15,8 +15,16 @@ header.app-header {
     align-items: center;
 }
 
+/* Add this new flex rule for the navigation container */
+.app-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg); /* This perfectly spaces the links and the toggle */
+}
+
+/* Remove the old margin-left from here, since 'gap' handles it now */
 .app-nav a {
-    margin-left: var(--space-lg);
+    /* margin-left: var(--space-lg); <--- DELETED */
 }
 
 a {
@@ -106,10 +114,8 @@ label.theme-toggle {
     display: flex;
     align-items: center;
     gap: var(--space-xs);
-    margin-left: var(--space-lg);
-    color: var(--color-text-header);
-    font-family: 'Roboto', Arial, sans-serif;
-    font-size: 0.9rem;
+    color: var(--color-accent);
+    font-weight: bold; 
     cursor: pointer;
 }
 
