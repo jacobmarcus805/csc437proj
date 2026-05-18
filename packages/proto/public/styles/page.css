@@ -22,11 +22,6 @@ header.app-header {
     gap: var(--space-lg); /* This perfectly spaces the links and the toggle */
 }
 
-/* Remove the old margin-left from here, since 'gap' handles it now */
-.app-nav a {
-    /* margin-left: var(--space-lg); <--- DELETED */
-}
-
 a {
     color: var(--color-accent);
     text-decoration: none;
