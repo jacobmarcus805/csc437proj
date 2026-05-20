@@ -13,52 +13,59 @@
     <link rel="stylesheet" href="styles/page.css">
 </head>
 <body>
-    <header class="app-header">
-        <div class="team-brand">
-            <h1>
-                <svg class="icon"><use href="/icons/nba.svg#icon-basketball" /></svg>
-                Miami Heat
-            </h1>
+    <auth-provider>
+        <header class="app-header">
+            <div class="team-brand">
+                <h1>
+                    <svg class="icon"><use href="/icons/nba.svg#icon-basketball" /></svg>
+                    Miami Heat
+                </h1>
+            </div>
+            <nav class="app-nav">
+                <a href="player.html">Roster</a>
+                <a href="game.html">Schedule</a>
+                <a href="login.html">Login</a>
+                <label class="theme-toggle">
+                    <input type="checkbox" autocomplete="off" />
+                    Light mode
+                </label>
+            </nav>
+        </header>
+
+        <div class="page-container">
+            
+            <aside class="sidebar">
+                <h3>Quick Stats</h3>
+                <ul>
+                    <li>Record: 42-20</li>
+                    <li>Streak: W5</li>
+                    <li>Conference: 2nd in East</li>
+                </ul>
+            </aside>
+
+            <main class="content-area">
+                <heat-roster src="/api/team"></heat-roster>
+            </main>
+            
         </div>
-        <nav class="app-nav">
-            <a href="player.html">Roster</a>
-            <a href="game.html">Schedule</a>
-            <label class="theme-toggle">
-                <input type="checkbox" autocomplete="off" />
-                Light mode
-            </label>
-        </nav>
-    </header>
-
-    <div class="page-container">
-        
-        <aside class="sidebar">
-            <h3>Quick Stats</h3>
-            <ul>
-                <li>Record: 42-20</li>
-                <li>Streak: W5</li>
-                <li>Conference: 2nd in East</li>
-            </ul>
-        </aside>
-
-        <main class="content-area">
-            <heat-roster src="/api/team"></heat-roster>
-        </main>
-        
-    </div>
+    </auth-provider>
     <script type="importmap">
     {
         "imports": {
-            "@unbndl/html": "https://unpkg.com/@unbndl/html"
+            "@unbndl/auth": "https://unpkg.com/@unbndl/auth",
+            "@unbndl/html": "https://unpkg.com/@unbndl/html",
+            "@unbndl/view": "https://unpkg.com/@unbndl/view"
         }
     }
     </script>
     <script type="module">
         import { define } from "@unbndl/html";
+        import { Auth } from "@unbndl/auth";
         import { HeatCardElement } from "/scripts/components/heat-card.js";
         import { HeatRosterElement } from "/scripts/components/heat-roster.js";
 
         define({
+            "auth-provider": Auth.Provider,
             "heat-card": HeatCardElement,
             "heat-roster": HeatRosterElement
         });
