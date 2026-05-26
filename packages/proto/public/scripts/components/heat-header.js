@@ -1,4 +1,3 @@
-// scripts/components/heat-header.js
 import { html, css, shadow } from "@unbndl/html";
 import { createViewModel } from "@unbndl/view";
 import { fromAuth } from "@unbndl/auth";
@@ -12,12 +11,15 @@ export class HeatHeaderElement extends HTMLElement {
     view = html`
         <header class="app-header">
             <div class="team-brand">
-                <h1>
-                    <svg class="icon"><use href="/icons/nba.svg#icon-basketball" /></svg>
-                    Miami Heat
-                </h1>
+                <a href="index.html" class="brand-link">
+                    <h1>
+                        <img src="/icons/miami-heat-logo.svg" alt="Miami Heat logo" class="logo" />
+                        Miami Heat
+                    </h1>
+                </a>
             </div>
             <nav class="app-nav">
+                <a href="index.html">Team Home</a>
                 <a href="player.html">Roster</a>
                 <a href="game.html">Schedule</a>
                 <nav class=${($) => $.authenticated ? "logged-in" : "logged-out"}>
@@ -48,7 +50,6 @@ export class HeatHeaderElement extends HTMLElement {
                 click: () => this.signout()
             });
 
-        // Wire up dark mode toggle inside shadow DOM
         this.shadowRoot.addEventListener("change", (event) => {
             if (event.target.closest(".theme-toggle")) {
                 document.body.classList.toggle("light-mode", event.target.checked);
@@ -68,6 +69,7 @@ export class HeatHeaderElement extends HTMLElement {
     static styles = css`
         :host {
             display: block;
+            line-height: 1;
         }
         .app-header {
             background-color: var(--color-background-header);
@@ -75,17 +77,23 @@ export class HeatHeaderElement extends HTMLElement {
             padding: var(--space-lg);
             border-bottom: 4px solid var(--color-accent);
             display: flex;
+            flex-wrap: nowrap;
             justify-content: space-between;
             align-items: center;
+            line-height: 1;
+            min-height: 0;
         }
         .app-nav {
             display: flex;
             align-items: center;
             gap: var(--space-lg);
+            line-height: 1;
         }
         h1 {
             font-family: 'Oswald', Impact, sans-serif;
             font-weight: 700;
+            line-height: 1;
+            font-size: 2rem;
         }
         .icon {
             display: inline;
@@ -94,6 +102,12 @@ export class HeatHeaderElement extends HTMLElement {
             vertical-align: top;
             fill: currentColor;
         }
+        .logo {
+            height: 2em;
+            width: auto;
+            vertical-align: middle;
+            margin-right: var(--space-xs);
+        }
         a {
             color: var(--color-accent);
             text-decoration: none;
@@ -101,6 +115,12 @@ export class HeatHeaderElement extends HTMLElement {
         }
         a:hover {
             color: var(--color-accent-hover);
+        }
+        .brand-link {
+            color: var(--color-text-header);
+        }
+        .brand-link:hover {
+            color: var(--color-text-header);
         }
         button.signout-btn {
             background: none;
