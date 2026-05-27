@@ -1,5 +1,7 @@
 // src/index.ts
 import express from "express";
+import fs from "node:fs/promises";
+import path from "path";
 import { connect } from "./services/mongo.js";
 import teamRouter from "./routes/team.js";
 import auth, { authenticateUser } from "./routes/auth.js";
@@ -15,6 +17,11 @@ app.get("/hello", (_req, res) => {
 });
 app.use("/auth", auth);
 app.use("/api/team", authenticateUser, teamRouter);
+// SPA Routes: /app/...
+app.use("/app", (_req, res) => {
+    const indexHtml = path.resolve(staticDir, "index.html");
+    fs.readFile(indexHtml, { encoding: "utf8" }).then((html) => res.send(html));
+});
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
 });
