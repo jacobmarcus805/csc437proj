@@ -1,6 +1,6 @@
 import { html, css, shadow } from "@unbndl/html";
 import { createViewModel } from "@unbndl/view";
-import { fromStore } from "@unbndl/store";
+import { fromStore, Store } from "@unbndl/store";
 import { Model } from "../model.ts";
 
 interface RosterItem {
@@ -58,18 +58,15 @@ export class HomeViewElement extends HTMLElement {
         shadow(this)
             .styles(HomeViewElement.styles)
             .replace(this.viewModel.render(this.view));
+    }
 
+    connectedCallback() {
         // Dispatch the team/request message to load roster from API
-        this.dispatch(["team/request", {}]);
+        Store.dispatch(this, ["team/request", {}]);
     }
 
     dispatch(message: any) {
-        const customEvent = new CustomEvent("store:message", {
-            bubbles: true,
-            composed: true,
-            detail: message
-        });
-        this.dispatchEvent(customEvent);
+        Store.dispatch(this, message);
     }
 
     static styles = css`
