@@ -1,0 +1,27 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "npx vite",
+    "build": "npx tsc && npx vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@unbndl/auth": "^1.0.7",
+    "@unbndl/html": "^1.0.7",
+    "@unbndl/store": "^1.0.11",
+    "@unbndl/switch": "^1.0.7",
+    "@unbndl/view": "^1.0.7",
+    "server": "^1.0.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "vite": "^5.0.0"
+  }
+}
