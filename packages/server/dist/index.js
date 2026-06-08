@@ -4,6 +4,7 @@ import fs from "node:fs/promises";
 import path from "path";
 import { connect } from "./services/mongo.js";
 import teamRouter from "./routes/team.js";
+import playerRouter from "./routes/player.js";
 import auth, { authenticateUser } from "./routes/auth.js";
 connect("proj");
 const app = express();
@@ -17,6 +18,7 @@ app.get("/hello", (_req, res) => {
 });
 app.use("/auth", auth);
 app.use("/api/team", authenticateUser, teamRouter);
+app.use("/api/players", authenticateUser, playerRouter);
 // SPA Routes: /app/...
 app.use("/app", (_req, res) => {
     const indexHtml = path.resolve(staticDir, "index.html");

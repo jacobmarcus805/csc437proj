@@ -20,7 +20,7 @@ export class HeatHeaderElement extends HTMLElement {
             </div>
             <nav class="app-nav">
                 <a href="/app">Team Home</a>
-                <a href="/app/player">Roster</a>
+                <a href="/app/players">Roster</a>
                 <a href="/app/game">Schedule</a>
                 <a href="/app/season">Season</a>
                 <nav class=${($: any) => $.authenticated ? "logged-in" : "logged-out"}>

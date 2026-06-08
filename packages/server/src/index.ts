@@ -4,6 +4,7 @@ import fs from "node:fs/promises";
 import path from "path";
 import { connect } from "./services/mongo.ts";
 import teamRouter from "./routes/team.ts";
+import playerRouter from "./routes/player.ts";
 import auth, { authenticateUser } from "./routes/auth.ts";
 
 connect("proj");
@@ -24,6 +25,8 @@ app.get("/hello", (_req: Request, res: Response) => {
 app.use("/auth", auth);
 
 app.use("/api/team", authenticateUser, teamRouter);
+
+app.use("/api/players", authenticateUser, playerRouter);
 
 // SPA Routes: /app/...
 app.use("/app", (_req: Request, res: Response) => {
