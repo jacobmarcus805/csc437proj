@@ -1,12 +1,14 @@
 import { Auth } from "@unbndl/auth";
-import { TeamRoster, Player } from "server/models";
+import { TeamRoster, Player, Game } from "server/models";
 import { Model } from "./model.ts";
 import { Msg } from "./messages.ts";
 
 export type Cmd =
     | ["team/load", { roster: TeamRoster }]
     | ["players/load", { players: Player[] }]
-    | ["player/load", { player: Player }];
+    | ["player/load", { player: Player }]
+    | ["games/load", { games: Game[] }]
+    | ["game/load", { game: Game }];
 
 export default function update(
     model: Readonly<Model>,
@@ -72,6 +74,24 @@ export default function update(
                         throw err;
                     })
             ];
+        }
+
+        case "games/request":
+            return [model, requestGames(user)];
+
+        case "games/load": {
+            const { games } = message[1];
+            return { ...model, games };
+        }
+
+        case "game/request": {
+            const { id } = message[1];
+            return [model, requestGame(id, user)];
+        }
+
+        case "game/load": {
+            const { game } = message[1];
+            return { ...model, game };
         }
 
         default: {
@@ -180,5 +200,38 @@ function createPlayer(
         .catch((err) => {
             console.log("Error creating player:", err);
             throw err;
+        });
+}
+
+
+function requestGames(user: Auth.User) {
+    return fetch("/api/games", {
+        headers: Auth.headers(user)
+    })
+        .then((response: Response) => {
+            if (response.status === 200) return response.json();
+            throw "No Response from server";
+        })
+        .then((json: unknown) => {
+            if (json) {
+                return ["games/load", { games: json as Game[] }];
+            }
+            throw "No JSON in response from server";
+        });
+}
+
+function requestGame(id: string, user: Auth.User) {
+    return fetch(`/api/games/${id}`, {
+        headers: Auth.headers(user)
+    })
+        .then((response: Response) => {
+            if (response.status === 200) return response.json();
+            throw `${response.status} status fetching game ${id}`;
+        })
+        .then((json: unknown) => {
+            if (json) {
+                return ["game/load", { game: json as Game }];
+            }
+            throw "No JSON in response from server";
         });
 }

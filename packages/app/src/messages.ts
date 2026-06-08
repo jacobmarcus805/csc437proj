@@ -1,4 +1,4 @@
-import { Player } from "server/models";
+import { Player, Game } from "server/models";
 
 export type Msg =
     | ["team/request", {}]
@@ -19,4 +19,6 @@ export type Msg =
             onSuccess?: (id: string) => void;
             onFailure?: (err: Error) => void;
         }
-    ];
+    ]
+    | ["games/request", {}]
+    | ["game/request", { id: string }];

@@ -1,0 +1,74 @@
+[
+  {
+    "date": "2025-10-22",
+    "time": "7:30 PM EST",
+    "opponent": "Orlando Magic",
+    "isHome": true,
+    "location": "Kaseya Center",
+    "heatScore": 113,
+    "opponentScore": 105,
+    "notes": "Season opener — Heat win behind Tyler Herro's 28 points."
+  },
+  {
+    "date": "2025-10-25",
+    "time": "7:30 PM EST",
+    "opponent": "Los Angeles Lakers",
+    "isHome": true,
+    "location": "Kaseya Center",
+    "heatScore": 109,
+    "opponentScore": 102,
+    "notes": "Cross-conference matchup; Bam Adebayo posts a triple-double."
+  },
+  {
+    "date": "2025-10-28",
+    "time": "8:00 PM EST",
+    "opponent": "Boston Celtics",
+    "isHome": false,
+    "location": "TD Garden",
+    "heatScore": 98,
+    "opponentScore": 112,
+    "notes": "Tough loss on the road in Boston."
+  },
+  {
+    "date": "2025-11-02",
+    "time": "7:00 PM EST",
+    "opponent": "New York Knicks",
+    "isHome": true,
+    "location": "Kaseya Center",
+    "heatScore": 121,
+    "opponentScore": 118,
+    "notes": "Norman Powell drops 35 in a thriller."
+  },
+  {
+    "date": "2025-11-05",
+    "time": "7:30 PM EST",
+    "opponent": "Philadelphia 76ers",
+    "isHome": false,
+    "location": "Wells Fargo Center",
+    "notes": "Upcoming East Coast battle."
+  },
+  {
+    "date": "2025-11-08",
+    "time": "7:30 PM EST",
+    "opponent": "Atlanta Hawks",
+    "isHome": true,
+    "location": "Kaseya Center",
+    "notes": "Southeast Division rivalry game."
+  },
+  {
+    "date": "2025-11-12",
+    "time": "10:00 PM EST",
+    "opponent": "Golden State Warriors",
+    "isHome": false,
+    "location": "Chase Center",
+    "notes": "West Coast trip kicks off."
+  },
+  {
+    "date": "2025-11-15",
+    "time": "10:30 PM EST",
+    "opponent": "Phoenix Suns",
+    "isHome": false,
+    "location": "Footprint Center",
+    "notes": "Late tip-off on the road."
+  }
+]
