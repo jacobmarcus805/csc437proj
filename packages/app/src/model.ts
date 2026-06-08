@@ -1,4 +1,4 @@
-import { TeamRoster, Player, Game } from "server/models";
+import { TeamRoster, Player, Game, Coach } from "server/models";
 
 export interface Model {
     roster?: TeamRoster;
@@ -6,6 +6,8 @@ export interface Model {
     player?: Player;
     games?: Game[];
     game?: Game;
+    coaches?: Coach[];
+    coach?: Coach;
 }
 
 export const init: Model = {};

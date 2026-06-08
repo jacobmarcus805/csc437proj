@@ -6,6 +6,7 @@ import { connect } from "./services/mongo.ts";
 import teamRouter from "./routes/team.ts";
 import playerRouter from "./routes/player.ts";
 import gameRouter from "./routes/game.ts";
+import coachRouter from "./routes/coach.ts";
 import auth, { authenticateUser } from "./routes/auth.ts";
 
 connect("proj");
@@ -30,6 +31,8 @@ app.use("/api/team", authenticateUser, teamRouter);
 app.use("/api/players", authenticateUser, playerRouter);
 
 app.use("/api/games", authenticateUser, gameRouter);
+
+app.use("/api/coaches", authenticateUser, coachRouter);
 
 // SPA Routes: /app/...
 app.use("/app", (_req: Request, res: Response) => {

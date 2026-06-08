@@ -1,0 +1,31 @@
+[
+  {
+    "name": "Erik Spoelstra",
+    "role": "Head Coach",
+    "yearsActive": 17,
+    "championships": 2,
+    "photo": "https://cdn.nba.com/logos/nba/1610612748/primary/L/logo.svg",
+    "bio": "Erik Spoelstra is one of the longest-tenured and most respected head coaches in the NBA. Promoted from video coordinator to head coach in 2008, he has led the Heat to multiple Finals appearances and back-to-back championships in 2012 and 2013."
+  },
+  {
+    "name": "Chris Quinn",
+    "role": "Lead Assistant Coach",
+    "yearsActive": 11,
+    "championships": 0,
+    "bio": "Former Notre Dame guard and longtime Heat staff member, currently serving as the lead assistant under Spoelstra."
+  },
+  {
+    "name": "Caron Butler",
+    "role": "Assistant Coach",
+    "yearsActive": 3,
+    "championships": 0,
+    "bio": "Two-time NBA All-Star and 2011 champion, now guiding the Heat from the bench."
+  },
+  {
+    "name": "Octavio De La Grana",
+    "role": "Assistant Coach / Player Development",
+    "yearsActive": 9,
+    "championships": 0,
+    "bio": "Player development specialist focused on shooting and skill work."
+  }
+]

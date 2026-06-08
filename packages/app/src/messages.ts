@@ -1,4 +1,4 @@
-import { Player, Game } from "server/models";
+import { Player, Game, Coach } from "server/models";
 
 export type Msg =
     | ["team/request", {}]
@@ -21,4 +21,6 @@ export type Msg =
         }
     ]
     | ["games/request", {}]
-    | ["game/request", { id: string }];
+    | ["game/request", { id: string }]
+    | ["coaches/request", {}]
+    | ["coach/request", { id: string }];

@@ -1,5 +1,5 @@
 import { Auth } from "@unbndl/auth";
-import { TeamRoster, Player, Game } from "server/models";
+import { TeamRoster, Player, Game, Coach } from "server/models";
 import { Model } from "./model.ts";
 import { Msg } from "./messages.ts";
 
@@ -8,7 +8,9 @@ export type Cmd =
     | ["players/load", { players: Player[] }]
     | ["player/load", { player: Player }]
     | ["games/load", { games: Game[] }]
-    | ["game/load", { game: Game }];
+    | ["game/load", { game: Game }]
+    | ["coaches/load", { coaches: Coach[] }]
+    | ["coach/load", { coach: Coach }];
 
 export default function update(
     model: Readonly<Model>,
@@ -92,6 +94,24 @@ export default function update(
         case "game/load": {
             const { game } = message[1];
             return { ...model, game };
+        }
+
+        case "coaches/request":
+            return [model, requestCoaches(user)];
+
+        case "coaches/load": {
+            const { coaches } = message[1];
+            return { ...model, coaches };
+        }
+
+        case "coach/request": {
+            const { id } = message[1];
+            return [model, requestCoach(id, user)];
+        }
+
+        case "coach/load": {
+            const { coach } = message[1];
+            return { ...model, coach };
         }
 
         default: {
@@ -231,6 +251,39 @@ function requestGame(id: string, user: Auth.User) {
         .then((json: unknown) => {
             if (json) {
                 return ["game/load", { game: json as Game }];
+            }
+            throw "No JSON in response from server";
+        });
+}
+
+
+function requestCoaches(user: Auth.User) {
+    return fetch("/api/coaches", {
+        headers: Auth.headers(user)
+    })
+        .then((response: Response) => {
+            if (response.status === 200) return response.json();
+            throw "No Response from server";
+        })
+        .then((json: unknown) => {
+            if (json) {
+                return ["coaches/load", { coaches: json as Coach[] }];
+            }
+            throw "No JSON in response from server";
+        });
+}
+
+function requestCoach(id: string, user: Auth.User) {
+    return fetch(`/api/coaches/${id}`, {
+        headers: Auth.headers(user)
+    })
+        .then((response: Response) => {
+            if (response.status === 200) return response.json();
+            throw `${response.status} status fetching coach ${id}`;
+        })
+        .then((json: unknown) => {
+            if (json) {
+                return ["coach/load", { coach: json as Coach }];
             }
             throw "No JSON in response from server";
         });
