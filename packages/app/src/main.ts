@@ -16,6 +16,7 @@ import { CoachViewElement } from "./views/coach-view.ts";
 import { PlayoffGameViewElement } from "./views/playoff-game-view.ts";
 import { PlayersListViewElement } from "./views/players-list-view.ts";
 import { PlayerEditViewElement } from "./views/player-edit-view.ts";
+import { PlayerDetailViewElement } from "./views/player-detail-view.ts";
 
 const routes: Switch.Route[] = [
     {
@@ -25,6 +26,10 @@ const routes: Switch.Route[] = [
     {
         path: "/app/players/:id/edit",
         view: html`<player-edit-view mode="edit" player-id=${($: any) => $.params.id}></player-edit-view>`
+    },
+    {
+        path: "/app/players/:id",
+        view: html`<player-detail-view player-id=${($: any) => $.params.id}></player-detail-view>`
     },
     {
         path: "/app/players",
@@ -83,5 +88,6 @@ define({
     "coach-view": CoachViewElement,
     "playoff-game-view": PlayoffGameViewElement,
     "players-list-view": PlayersListViewElement,
-    "player-edit-view": PlayerEditViewElement
+    "player-edit-view": PlayerEditViewElement,
+    "player-detail-view": PlayerDetailViewElement
 });

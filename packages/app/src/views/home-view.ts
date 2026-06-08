@@ -56,7 +56,7 @@ export class HomeViewElement extends HTMLElement {
                                   ${$.players.slice(0, 5).map(
                                       (p: Player) => html`
                                           <li>
-                                              <a href=${`/app/players/${p._id}/edit`}>
+                                              <a href=${`/app/players/${p._id}`}>
                                                   #${p.jersey} ${p.name}
                                                   <span class="position">${p.position}</span>
                                               </a>

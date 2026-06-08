@@ -19,8 +19,12 @@ export class PlayersListViewElement extends HTMLElement {
                         ? html`<ul class="player-list">${$.players.map(
                               (p: Player) => html`
                                   <li>
-                                      <a href=${`/app/players/${p._id}/edit`}>
-                                          #${p.jersey} ${p.name} - ${p.position}
+                                      <a href=${`/app/players/${p._id}`}>
+                                          ${p.photo
+                                              ? html`<img class="thumb" src=${p.photo} alt=${p.name} />`
+                                              : ""}
+                                          <span class="name">#${p.jersey} ${p.name}</span>
+                                          <span class="pos">${p.position}</span>
                                       </a>
                                   </li>
                               `
@@ -70,19 +74,39 @@ export class PlayersListViewElement extends HTMLElement {
             padding: 0;
         }
         .player-list li {
-            padding: var(--space-sm) var(--space-md);
+            padding: 0;
             background-color: var(--color-background-section);
             border: 1px solid var(--color-border-subtle);
             border-radius: 8px;
             margin-bottom: var(--space-sm);
+            overflow: hidden;
         }
         .player-list a {
+            display: flex;
+            align-items: center;
+            gap: var(--space-md);
+            padding: var(--space-sm) var(--space-md);
             color: var(--color-accent);
             text-decoration: none;
             font-weight: bold;
         }
         .player-list a:hover {
             color: var(--color-accent-hover);
+            background-color: var(--color-background-page);
+        }
+        .thumb {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 50%;
+            object-fit: cover;
+            background-color: var(--color-background-page);
+        }
+        .name {
+            flex: 1;
+        }
+        .pos {
+            color: var(--color-text-default);
+            font-weight: normal;
         }
     `;
 }

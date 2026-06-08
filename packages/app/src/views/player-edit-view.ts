@@ -86,7 +86,28 @@ export class PlayerEditViewElement extends HTMLElement {
         this.shadowRoot?.addEventListener("submit", (ev: Event) => this.submitForm(ev));
     }
 
+    connectedCallback() {
+        // Read mode and player-id from attributes or URL
+        let mode = this.getAttribute("mode") as Mode;
+        let playerId = this.getAttribute("player-id");
+
+        if (!playerId) {
+            const match = window.location.pathname.match(/\/app\/players\/([^/]+)\/edit/);
+            if (match) playerId = match[1];
+        }
+        if (!mode) {
+            mode = window.location.pathname.endsWith("/new") ? "new" : "edit";
+        }
+
+        this.viewModel.set("mode", mode);
+        if (playerId) {
+            this.viewModel.set("playerId", playerId);
+            Store.dispatch(this, ["player/request", { id: playerId }]);
+        }
+    }
+
     attributeChangedCallback(name: string, _: string, newValue: string) {
+        if (!this.isConnected) return;
         if (name === "player-id") {
             this.viewModel.set("playerId", newValue);
             if (newValue) {
